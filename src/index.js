@@ -1,5 +1,6 @@
 import "./styles.css";
 import { buildIntro, displayMenu, displayAbout } from "./page-loader.js";
+import { createElement } from "./domHelpers.js";
 
 buildIntro();
 
