@@ -119,17 +119,23 @@ h4 {
   margin: 1rem 0;
 }
 
-.menu-list {
+.menu-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.menu-category {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.menu-category__items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 1.5rem;
-  margin: 0 0 1.5rem 0;
-  padding: 1.5rem;
-  background: #fff;
-}
-
-.menu-list__heading {
-  grid-column: 1 / -1;
 }
 
   /* .split__content h1 {
