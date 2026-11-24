@@ -11,7 +11,7 @@ function buildIntro() {
   const childDiv2 = createElement('div', 'split__content');
   const h1 = createElement('h1', null, "Chuck's Bakery");
   const introP = createElement('p', null, 'An artisan bakery specializing in pastries and desserts. Made fresh daily.');
-  const menuBtn = createElement('button', null, 'View our menu');
+  // const menuBtn = createElement('button', null, 'View our menu');
   const heroImg = document.createElement('img');
 
   heroImg.src = heroImageUrl;
@@ -23,7 +23,7 @@ function buildIntro() {
   childDiv1.append(heroImg);
   childDiv2.append(h1);
   childDiv2.append(introP);
-  childDiv2.append(menuBtn);
+  // childDiv2.append(menuBtn);
 }
 
 const cakes = [
@@ -57,32 +57,40 @@ function displayMenu() {
   menuSection.setAttribute('id', 'menu-section');
 
   const menuContainer = createElement('div', 'container');
-  const menuGrid = createElement('section', ['grid', 'menu']);
-  const menuColumn = createElement('div', 'column-xs-12');
-  const menuList = createElement('div', ['grid', 'menu-list']);
+  const menuList = createElement('div', 'menu-list');
 
-  const cakesHeading = createElement('div', 'column-xs-12');
+  const cakesHeading = createElement('div', 'menu-list__heading');
   cakesHeading.append(createElement('h2', null, 'Cakes'));
   menuList.append(cakesHeading);
 
   cakes.forEach(({ title, description }) => {
-    const cakeItem = createElement('div', ['column-xs-12', 'column-md-4']);
+    const cakeItem = createElement('div');
     cakeItem.append(createElement('h3', null, title));
     cakeItem.append(createElement('p', null, description));
     menuList.append(cakeItem);
   });
 
-  menuColumn.append(createElement('h1', null, 'Menu'));
-  menuColumn.append(menuList);
-  menuGrid.append(menuColumn);
-  menuContainer.append(menuGrid);
+  menuContainer.append(createElement('h1', null, 'Menu'));
+  menuContainer.append(menuList);
   menuSection.append(menuContainer);
   content.append(menuSection);
 }
 
 function displayAbout() {
   const content = document.getElementById('content');
-  content.innerHTML = "&copy; Copyright 2026 Chuck McQuilkin";
+  content.innerHTML = '';
+
+  const newDiv = createElement('div', ['menu-list', 'grid']);
+  const h1 = createElement('h1', null, "About Chuck's Bakery");
+  const aboutP = createElement('p', null, 'An artisan bakery specializing in pastries and desserts. Made fresh daily.');
+
+  const copyRight = createElement("p", null, "© 2026 Chuck McQuilkin");
+  content.append(newDiv);
+  newDiv.append(h1);
+  newDiv.append(aboutP);
+  content.append(copyRight);
+  
+  // content.innerHTML = "&copy; Copyright 2026 Chuck McQuilkin";
 }
 
 export { buildIntro, displayMenu, displayAbout };
